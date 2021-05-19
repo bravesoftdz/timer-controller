@@ -1,0 +1,812 @@
+object fmTimer: TfmTimer
+  Left = 0
+  Height = 139
+  Top = 0
+  Width = 1113
+  ClientHeight = 139
+  ClientWidth = 1113
+  Constraints.MaxHeight = 139
+  Constraints.MinHeight = 139
+  Constraints.MinWidth = 1111
+  TabOrder = 0
+  DesignLeft = 489
+  DesignTop = 345
+  object gpAlarm: TGroupBox
+    Left = 4
+    Height = 131
+    Top = 4
+    Width = 1105
+    Align = alClient
+    BorderSpacing.Left = 2
+    BorderSpacing.Top = 2
+    BorderSpacing.Right = 2
+    BorderSpacing.Bottom = 2
+    BorderSpacing.Around = 2
+    ClientHeight = 129
+    ClientWidth = 1103
+    PopupMenu = mnuItem
+    TabOrder = 0
+    object chkSelect: TCheckBox
+      Left = 8
+      Height = 23
+      Top = 13
+      Width = 23
+      TabOrder = 0
+    end
+    object imgWarning: TImage
+      Left = 12
+      Height = 16
+      Hint = 'Start date / time and end date / time values are invalid'
+      Top = 56
+      Width = 16
+      AutoSize = True
+      ParentShowHint = False
+      Picture.Data = {
+        1754506F727461626C654E6574776F726B477261706869631F02000089504E47
+        0D0A1A0A0000000D49484452000000100000001008060000001FF3FF61000000
+        1974455874536F6674776172650041646F626520496D616765526561647971C9
+        653C000001C14944415478DAA4533D4B2351143DEF4D924193888D4514719520
+        111483CBDA44718B142EAC45C0C266D97241B0B0F02F58588A5A5988168285FB
+        03DCD62285D68A686091952DD4B0E2079999F7F69D970F06194448E0F04ECE39
+        F7E5DE9B19A1B5463B9FD8C9EA54A4A1941A7444ED8A3CD089212965252A27A3
+        44AD1402AF76989D298120A7F6AE0B38920EFCA5EEDE0FF9AEB16910E4D4A2C6
+        9511BFDE299CF87A6EEE3B2A679716E4D4E8BD7901DB54BE773C50F80AB8FFB0
+        B2796A414E8DDEEB5164A877A8C05F4867B2F99E4F9F81AB2D089325C8A9D163
+        06A1516468EBE69BBB9F2B2D02E76B80778B975A60414ECD7A26A3425DC850EB
+        47FDD3F390F787C0F36F2091C6C39367414E8D1E33CC364789D55B0F8AA94CAE
+        9819E9022A65209EA48383E59BC6D3D261347356CBC88C8CE3EE2C577CFC7B51
+        7484F825B532F3C88EA3E12FB3C0CDAE5958CAC014B82E7EEC8C5A90D7B594CD
+        D8ACA961AD544A6FF44D1610F77E9A5693AD62245CDCDF562DC85B97980CB3AC
+        61AD38592DE8896FBD8D4D8AFAC9C361EB8D6DFB4608B8ACE6E6EAE474EF0F62
+        81AF51DEBE861D4537AB7998F61A9416B468FEDF36228C291D61D31FDB791B45
+        BBAFF37F010600D270DE7C530E716D0000000049454E44AE426082
+      }
+      ShowHint = True
+      Visible = False
+    end
+    object lblStartYear: TLabel
+      AnchorSideLeft.Control = lblStart
+      AnchorSideLeft.Side = asrBottom
+      Left = 189
+      Height = 15
+      Top = 16
+      Width = 34
+      BorderSpacing.Left = 14
+      Caption = 'Year:'
+      ParentColor = False
+    end
+    object txtStartYear: TEdit
+      AnchorSideLeft.Control = lblStartYear
+      AnchorSideLeft.Side = asrBottom
+      Left = 231
+      Height = 33
+      Top = 7
+      Width = 72
+      BorderSpacing.Left = 8
+      ReadOnly = True
+      TabOrder = 1
+      Text = 'None'
+    end
+    object updStartYear: TUpDown
+      AnchorSideLeft.Control = txtStartYear
+      AnchorSideLeft.Side = asrBottom
+      Left = 304
+      Height = 33
+      Top = 8
+      Width = 20
+      BorderSpacing.Left = 1
+      Max = 3020
+      Min = 2019
+      OnChanging = updStartYearChanging
+      OnChangingEx = updStartYearChangingEx
+      Position = 2020
+      TabOrder = 2
+    end
+    object lblStartMonth: TLabel
+      AnchorSideLeft.Control = updStartYear
+      AnchorSideLeft.Side = asrBottom
+      Left = 338
+      Height = 15
+      Top = 16
+      Width = 48
+      BorderSpacing.Left = 14
+      Caption = 'Month:'
+      ParentColor = False
+    end
+    object lblStart: TLabel
+      AnchorSideLeft.Control = chkSelect
+      AnchorSideLeft.Side = asrBottom
+      Left = 43
+      Height = 15
+      Top = 16
+      Width = 132
+      BorderSpacing.Left = 12
+      Caption = 'Start Date / Time:'
+      Font.Height = -13
+      Font.Name = 'Sans'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object cmbStartMonth: TComboBox
+      AnchorSideLeft.Control = lblStartMonth
+      AnchorSideLeft.Side = asrBottom
+      Left = 394
+      Height = 29
+      Top = 11
+      Width = 112
+      BorderSpacing.Left = 8
+      ItemHeight = 0
+      ItemIndex = 0
+      Items.Strings = (
+        'None'
+        'January'
+        'February'
+        'March'
+        'April'
+        'May'
+        'June'
+        'July'
+        'August'
+        'September'
+        'October'
+        'November'
+        'December'
+      )
+      OnChange = cmbStartMonthChange
+      Style = csDropDownList
+      TabOrder = 3
+      Text = 'None'
+    end
+    object txtStartDate: TEdit
+      AnchorSideLeft.Control = lblStartDate
+      AnchorSideLeft.Side = asrBottom
+      Left = 564
+      Height = 33
+      Top = 7
+      Width = 56
+      BorderSpacing.Left = 8
+      ReadOnly = True
+      TabOrder = 4
+      Text = 'None'
+    end
+    object lblStartDate: TLabel
+      AnchorSideLeft.Control = cmbStartMonth
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideRight.Control = txtStartDate
+      Left = 520
+      Height = 15
+      Top = 16
+      Width = 36
+      BorderSpacing.Left = 14
+      Caption = 'Date:'
+      ParentColor = False
+    end
+    object updStartDate: TUpDown
+      AnchorSideLeft.Control = txtStartDate
+      AnchorSideLeft.Side = asrBottom
+      Left = 621
+      Height = 33
+      Top = 8
+      Width = 20
+      BorderSpacing.Left = 1
+      Max = 31
+      Min = 0
+      OnChanging = updStartYearChanging
+      OnChangingEx = updStartDateChangingEx
+      Position = 31
+      TabOrder = 5
+    end
+    object txtStartHour: TEdit
+      AnchorSideLeft.Control = lblStartHour
+      AnchorSideLeft.Side = asrBottom
+      Left = 700
+      Height = 33
+      Top = 7
+      Width = 56
+      BorderSpacing.Left = 8
+      ReadOnly = True
+      TabOrder = 6
+      Text = 'txtStartHour'
+    end
+    object txtStartMinute: TEdit
+      AnchorSideLeft.Control = lblStartMinute
+      AnchorSideLeft.Side = asrBottom
+      Left = 857
+      Height = 33
+      Top = 7
+      Width = 56
+      BorderSpacing.Left = 8
+      ReadOnly = True
+      TabOrder = 8
+      Text = 'txtStartMinute'
+    end
+    object txtStartSeconds: TEdit
+      AnchorSideLeft.Control = lblStartSec
+      AnchorSideLeft.Side = asrBottom
+      Left = 1016
+      Height = 33
+      Top = 7
+      Width = 56
+      BorderSpacing.Left = 8
+      ReadOnly = True
+      TabOrder = 10
+      Text = 'txtStartSeconds'
+    end
+    object updStartHour: TUpDown
+      AnchorSideLeft.Control = txtStartHour
+      AnchorSideLeft.Side = asrBottom
+      Left = 757
+      Height = 33
+      Top = 7
+      Width = 20
+      BorderSpacing.Left = 1
+      Max = 23
+      Min = 0
+      OnChanging = updStartYearChanging
+      OnChangingEx = updStartHourChangingEx
+      Position = 23
+      TabOrder = 7
+    end
+    object updStartMinute: TUpDown
+      AnchorSideLeft.Control = txtStartMinute
+      AnchorSideLeft.Side = asrBottom
+      Left = 914
+      Height = 33
+      Top = 8
+      Width = 20
+      BorderSpacing.Left = 1
+      Max = 59
+      Min = 0
+      OnChanging = updStartYearChanging
+      OnChangingEx = updStartMinuteChangingEx
+      Position = 31
+      TabOrder = 9
+    end
+    object updStartSeconds: TUpDown
+      AnchorSideLeft.Control = txtStartSeconds
+      AnchorSideLeft.Side = asrBottom
+      Left = 1073
+      Height = 33
+      Top = 7
+      Width = 20
+      BorderSpacing.Left = 1
+      Max = 59
+      Min = 0
+      OnChanging = updStartYearChanging
+      OnChangingEx = updStartSecondsChangingEx
+      Position = 31
+      TabOrder = 11
+    end
+    object lblStartHour: TLabel
+      AnchorSideLeft.Control = updStartDate
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideRight.Control = txtStartDate
+      Left = 655
+      Height = 15
+      Top = 16
+      Width = 37
+      BorderSpacing.Left = 14
+      Caption = 'Hour:'
+      ParentColor = False
+    end
+    object lblStartMinute: TLabel
+      AnchorSideLeft.Control = updStartHour
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideRight.Control = txtStartDate
+      Left = 791
+      Height = 15
+      Top = 16
+      Width = 58
+      BorderSpacing.Left = 14
+      Caption = 'Minutes:'
+      ParentColor = False
+    end
+    object lblStartSec: TLabel
+      AnchorSideLeft.Control = updStartMinute
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideRight.Control = txtStartDate
+      Left = 948
+      Height = 15
+      Top = 16
+      Width = 60
+      BorderSpacing.Left = 14
+      Caption = 'Seconds:'
+      ParentColor = False
+    end
+    object lblStartYear1: TLabel
+      AnchorSideLeft.Control = lblStart
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = lblStartYear
+      AnchorSideTop.Side = asrBottom
+      Left = 189
+      Height = 15
+      Top = 57
+      Width = 34
+      BorderSpacing.Left = 14
+      BorderSpacing.Top = 26
+      Caption = 'Year:'
+      ParentColor = False
+    end
+    object txtEndYear: TEdit
+      AnchorSideLeft.Control = lblStartYear1
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = txtStartYear
+      AnchorSideTop.Side = asrBottom
+      Left = 231
+      Height = 33
+      Top = 48
+      Width = 72
+      BorderSpacing.Left = 8
+      BorderSpacing.Top = 8
+      ReadOnly = True
+      TabOrder = 12
+      Text = 'None'
+    end
+    object updEndYear: TUpDown
+      Tag = 1
+      AnchorSideLeft.Control = txtEndYear
+      AnchorSideLeft.Side = asrBottom
+      Left = 304
+      Height = 33
+      Top = 49
+      Width = 20
+      BorderSpacing.Left = 1
+      Max = 3020
+      Min = 2019
+      OnChanging = updStartYearChanging
+      OnChangingEx = updStartYearChangingEx
+      Position = 2020
+      TabOrder = 13
+    end
+    object lblStartMonth1: TLabel
+      AnchorSideLeft.Control = updEndYear
+      AnchorSideLeft.Side = asrBottom
+      Left = 338
+      Height = 15
+      Top = 57
+      Width = 48
+      BorderSpacing.Left = 14
+      Caption = 'Month:'
+      ParentColor = False
+    end
+    object cmbEndMonth: TComboBox
+      Tag = 1
+      AnchorSideLeft.Control = lblStartMonth1
+      AnchorSideLeft.Side = asrBottom
+      Left = 394
+      Height = 29
+      Top = 53
+      Width = 112
+      BorderSpacing.Left = 8
+      ItemHeight = 0
+      ItemIndex = 0
+      Items.Strings = (
+        'None'
+        'January'
+        'February'
+        'March'
+        'April'
+        'May'
+        'June'
+        'July'
+        'August'
+        'September'
+        'October'
+        'November'
+        'December'
+      )
+      OnChange = cmbStartMonthChange
+      Style = csDropDownList
+      TabOrder = 14
+      Text = 'None'
+    end
+    object lblStartDate1: TLabel
+      AnchorSideLeft.Control = cmbEndMonth
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideRight.Control = txtEndDate
+      Left = 520
+      Height = 15
+      Top = 57
+      Width = 36
+      BorderSpacing.Left = 14
+      Caption = 'Date:'
+      ParentColor = False
+    end
+    object txtEndDate: TEdit
+      AnchorSideLeft.Control = lblStartDate1
+      AnchorSideLeft.Side = asrBottom
+      Left = 564
+      Height = 33
+      Top = 48
+      Width = 56
+      BorderSpacing.Left = 8
+      ReadOnly = True
+      TabOrder = 15
+      Text = 'None'
+    end
+    object updEndDate: TUpDown
+      Tag = 1
+      AnchorSideLeft.Control = txtEndDate
+      AnchorSideLeft.Side = asrBottom
+      Left = 621
+      Height = 33
+      Top = 49
+      Width = 20
+      BorderSpacing.Left = 1
+      Max = 31
+      Min = 0
+      OnChanging = updStartYearChanging
+      OnChangingEx = updStartDateChangingEx
+      Position = 31
+      TabOrder = 16
+    end
+    object lblEnd: TLabel
+      AnchorSideLeft.Control = chkSelect
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = lblStart
+      AnchorSideTop.Side = asrBottom
+      Left = 43
+      Height = 15
+      Top = 57
+      Width = 125
+      Anchors = [akTop, akLeft, akRight]
+      BorderSpacing.Left = 12
+      BorderSpacing.Top = 26
+      Caption = 'End Date / Time:'
+      Font.Height = -13
+      Font.Name = 'Sans'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object lblStartHour1: TLabel
+      AnchorSideLeft.Control = updEndDate
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideRight.Control = txtEndDate
+      Left = 655
+      Height = 15
+      Top = 57
+      Width = 37
+      BorderSpacing.Left = 14
+      Caption = 'Hour:'
+      ParentColor = False
+    end
+    object txtEndHour: TEdit
+      AnchorSideLeft.Control = lblStartHour1
+      AnchorSideLeft.Side = asrBottom
+      Left = 700
+      Height = 33
+      Top = 48
+      Width = 56
+      BorderSpacing.Left = 8
+      ReadOnly = True
+      TabOrder = 17
+      Text = 'txtEndHour'
+    end
+    object updEndHour: TUpDown
+      Tag = 1
+      AnchorSideLeft.Control = txtEndHour
+      AnchorSideLeft.Side = asrBottom
+      Left = 757
+      Height = 33
+      Top = 48
+      Width = 20
+      BorderSpacing.Left = 1
+      Max = 23
+      Min = 0
+      OnChanging = updStartYearChanging
+      OnChangingEx = updStartHourChangingEx
+      Position = 23
+      TabOrder = 18
+    end
+    object lblStartMinute1: TLabel
+      AnchorSideLeft.Control = updEndHour
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideRight.Control = txtEndDate
+      Left = 791
+      Height = 15
+      Top = 57
+      Width = 58
+      BorderSpacing.Left = 14
+      Caption = 'Minutes:'
+      ParentColor = False
+    end
+    object txtEndMinute: TEdit
+      AnchorSideLeft.Control = lblStartMinute1
+      AnchorSideLeft.Side = asrBottom
+      Left = 857
+      Height = 33
+      Top = 48
+      Width = 56
+      BorderSpacing.Left = 8
+      ReadOnly = True
+      TabOrder = 19
+      Text = 'txtEndMinute'
+    end
+    object updEndMinute: TUpDown
+      Tag = 1
+      AnchorSideLeft.Control = txtEndMinute
+      AnchorSideLeft.Side = asrBottom
+      Left = 914
+      Height = 33
+      Top = 49
+      Width = 20
+      BorderSpacing.Left = 1
+      Max = 59
+      Min = 0
+      OnChanging = updStartYearChanging
+      OnChangingEx = updStartMinuteChangingEx
+      Position = 31
+      TabOrder = 20
+    end
+    object lblStartSec1: TLabel
+      AnchorSideLeft.Control = updEndMinute
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideRight.Control = txtEndDate
+      Left = 948
+      Height = 15
+      Top = 57
+      Width = 60
+      BorderSpacing.Left = 14
+      Caption = 'Seconds:'
+      ParentColor = False
+    end
+    object txtEndSeconds: TEdit
+      AnchorSideLeft.Control = lblStartSec1
+      AnchorSideLeft.Side = asrBottom
+      Left = 1016
+      Height = 33
+      Top = 48
+      Width = 56
+      BorderSpacing.Left = 8
+      ReadOnly = True
+      TabOrder = 21
+      Text = 'txtEndSeconds'
+    end
+    object updEndSeconds: TUpDown
+      Tag = 1
+      AnchorSideLeft.Control = txtEndSeconds
+      AnchorSideLeft.Side = asrBottom
+      Left = 1073
+      Height = 33
+      Top = 48
+      Width = 20
+      BorderSpacing.Left = 1
+      Max = 59
+      Min = 0
+      OnChanging = updStartYearChanging
+      OnChangingEx = updStartSecondsChangingEx
+      Position = 31
+      TabOrder = 22
+    end
+    object lblChannel: TLabel
+      AnchorSideLeft.Control = chkSelect
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = lblEnd
+      AnchorSideTop.Side = asrBottom
+      Left = 43
+      Height = 15
+      Top = 98
+      Width = 64
+      BorderSpacing.Left = 12
+      BorderSpacing.Top = 26
+      Caption = 'Channel:'
+      Font.Height = -13
+      Font.Name = 'Sans'
+      Font.Style = [fsBold]
+      ParentBidiMode = False
+      ParentColor = False
+      ParentFont = False
+    end
+    object txtChannel: TEdit
+      AnchorSideLeft.Control = lblChannel
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = txtEndYear
+      AnchorSideTop.Side = asrBottom
+      Left = 115
+      Height = 33
+      Top = 89
+      Width = 56
+      BorderSpacing.Left = 8
+      BorderSpacing.Top = 8
+      ReadOnly = True
+      TabOrder = 23
+      Text = 'None'
+    end
+    object updChannel: TUpDown
+      AnchorSideLeft.Control = txtChannel
+      AnchorSideLeft.Side = asrBottom
+      Left = 172
+      Height = 33
+      Top = 89
+      Width = 20
+      BorderSpacing.Left = 1
+      Max = 254
+      Min = 1
+      OnChanging = updStartYearChanging
+      OnChangingEx = updChannelChangingEx
+      Position = 254
+      TabOrder = 24
+    end
+  end
+  object mnuItem: TPopupMenu
+    Images = imglMenu
+    OnPopup = mnuItemPopup
+    Left = 64
+    Top = 40
+    object mnuCopy: TMenuItem
+      Caption = 'Copy'
+      ImageIndex = 2
+      OnClick = mnuCopyClick
+    end
+    object mnuPaste: TMenuItem
+      Caption = 'Paste'
+      ImageIndex = 1
+      OnClick = mnuPasteClick
+    end
+    object mnuPasteValues: TMenuItem
+      Caption = 'Paste Values'
+      OnClick = mnuPasteValuesClick
+    end
+    object mnuCut: TMenuItem
+      Caption = 'Cut'
+      ImageIndex = 3
+      OnClick = mnuCutClick
+    end
+    object mnuSep1: TMenuItem
+      Caption = '-'
+    end
+    object mnuDelete: TMenuItem
+      Caption = 'Delete'
+      ImageIndex = 0
+      OnClick = mnuDeleteClick
+    end
+    object mnuSep2: TMenuItem
+      Caption = '-'
+    end
+    object mnuMuteDate: TMenuItem
+      Caption = 'Disable Date'
+      OnClick = mnuMuteDateClick
+    end
+    object mnuDuplicate: TMenuItem
+      Caption = 'Duplicate'
+      OnClick = mnuDuplicateClick
+    end
+  end
+  object imglMenu: TImageList
+    Left = 168
+    Top = 40
+    Bitmap = {
+      4C69040000001000000010000000000000000000000000000000000000002A3B
+      C1952838C0F72737BFFF2737BFFF2737BFFF2838C0F72A3BC195000000000000
+      00000000000000000000FFFFFF0000000000000000002C3CC2462737BFFF6A77
+      DCFF9EA9F2FFAFBAF8FFAFBBF8FFAFBAF8FF9EA9F2FF6A77DCFF2737BFFF2C3C
+      C2460000000000000000FFFFFF00000000002C3DC2462F3FC3FF97A3EFFF9EAC
+      F7FF6075EDFF3E57E9FF2441E5FF3E57E9FF6075EDFF9EACF7FF97A3EFFF2F3F
+      C3FF2C3DC24600000000FFFFFF00000000002737BFFF9AA7F0FF7F90F3FF324C
+      E9FF2D49E7FF304CE8FF314CE8FF304CE8FF2D49E7FF324CE9FF7F90F3FF9AA7
+      F0FF2737BFFF00000000FFFFFF002B3BC1956F7CDDFF8494F5FF2E4AE9FF334D
+      E9FF354FEAFF3650EAFF3650EAFF3650EAFF354FEAFF334DE9FF2E4AE9FF8494
+      F5FF6F7CDDFF2B3BC195FFFFFF002939BFF8A1ACF4FF3852EDFF2D48ECFF2B46
+      EBFF2A46EBFF2A46EBFF2A46EBFF2A46EBFF2A46EBFF2B46EBFF2D48ECFF3852
+      EDFFA1ACF4FF2939BFF8FFFFFF002A39BFFF8696F8FF2F4BEEFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF2F4B
+      EEFF8696F8FF2A39BFFFFFFFFF002B3BBFFF6378F7FF334DF0FFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF334D
+      F0FF6378F7FF2B3BBFFFFFFFFF002C3CBFFF5369F8FF3E56F3FFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF3E56
+      F3FF5369F8FF2C3CBFFFFFFFFF002D3DBEF94E64F4FF4C63F7FF425AF4FF3E56
+      F4FF3D55F4FF3D55F4FF3D55F4FF3D55F4FF3D55F4FF3E56F4FF425AF4FF4C63
+      F7FF4E64F4FF2D3DBEF9FFFFFF002937AAA94256DEFF576DFBFF5369F8FF5268
+      F7FF5267F7FF5267F7FF5267F7FF5267F7FF5267F7FF5268F7FF5369F8FF576D
+      FBFF4256DEFF2937AAA9FFFFFF000000001E2C3CBFFF5669F4FF5D71FCFF5B6F
+      FAFF5A6EF9FF5A6EF9FF5A6EF9FF5A6EF9FF5A6EF9FF5B6FFAFF5D71FCFF5669
+      F4FF2C3CBFFF0000001EFFFFFF00000000001E297F6B2F3FC2FF596DF6FF6276
+      FFFF6074FEFF5F73FEFF5F73FDFF5F73FEFF6074FEFF6276FFFF596DF6FF2F3F
+      C2FF1E297F6B00000000FFFFFF00000000000000000E1E297F6B2B3BBEFF4A5B
+      E2FF6175FCFF697DFFFF697CFFFF697DFFFF6175FCFF4A5BE2FF2B3BBEFF1E29
+      7F6B0000000E00000000FFFFFF0000000000000000000000000E000000332836
+      AAAA2C3BBEF92B3BBEFF2B3ABEFF2B3BBEFF2C3BBEF92836AAAA000000330000
+      000E0000000000000000FFFFFF00000000000000000000000000000000000000
+      001E00000031000000330000003300000033000000310000001E000000000000
+      00000000000000000000FFFFFF00487BA500417AA700908B8700FFFFFF009993
+      8EFF99938EFF99938EFFFFFFFF00908B8700417AA700467AA5003E76A300C0BB
+      B500B7B6B300B5B5B300B5B5B300477AA3B03E77A4FF3E77A4FF99938EFFE5DD
+      D8FFE5DDD8FFE5DDD8FF99938EFF3E77A4FF3C76A4FF4177A3AF3973A200BEBA
+      B400B7B5B300B5B5B300B5B5B30042759FFFADD2F4FF5997CBFFA7A19BFFD6CB
+      C5FFD6CBC5FFD6CBC5FFA7A19BFF5997CBFFA6D0F6FF336D9EFFC0BAB300B8B6
+      B300B5B5B200B5B5B300B5B5B3003E729DFFD4E7F8FF5997CBFF7F95A7FF9993
+      8EFF99938EFFB0AFADFFB5B3AEFFB2B0ACFFB3B0AAFFB4B0ABFFB1B0ACFFB0AF
+      ADFFB1B0AEACB3B3B100B5B5B3003D709AFFC6DEF0FF5997CBFF5E9ACDFF5E9B
+      CEFF5798CFFFBAB3ABFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFE9E9E9FFAFAFADA7B3B3B1003E6F9AFFB9D5EAFF5794C6FF5B97C8FF5B98
+      C8FF5294C9FFB7B1AAFFFFFFFFFFE0E0DFFFE0E0DFFFE0E0DFFFFFFFFFFFA4A4
+      A2FFFFFFFFFFE9E9E9FFB0B0AEAC3E6E99FFACCAE4FF5691C1FF5A93C3FF5993
+      C3FF508FC3FFB7B1AAFFFFFFFFFFE5E4E3FFE6E5E4FFE5E4E3FFFFFFFFFFCACA
+      C9FFA4A4A2FFFFFFFFFFAFAFADFF3E6D97FF9FC1DDFF538EBDFF5791BFFF5691
+      BFFF4D8CBFFFB7B1AAFFFFFFFFFFE9E8E8FFEAE8E9FFE9E8E8FFF3F2F2FFFFFF
+      FFFFFFFFFFFFFFFFFFFFAEAEABFF3E6C97FF91B6D5FF528BBAFF558CBBFF548C
+      BBFF4B88BBFFB8B2ABFFFFFFFFFFECECEBFFEDEDECFFEDEDECFFECECEBFFEBEB
+      EAFFEBEBEAFFFFFFFFFFADADABFF3F6B97FF82ABCCFF5088B5FF528AB6FF5189
+      B6FF4784B5FFB8B2ABFFFFFFFFFFF0F0EFFFF0F0EFFFF0F0EFFFF0F0EFFFEFEF
+      EEFFEFEFEEFFFFFFFFFFADADABFF3F6B95FF74A1C3FF4F86B1FF5187B2FF4F86
+      B2FF4581B0FFB8B2ABFFFFFFFFFFF4F3F3FFF4F3F3FFF4F3F3FFF4F3F3FFF4F3
+      F3FFF4F3F3FFFFFFFFFFADADABFF3F6A95FF6594BBFF4C83AEFF4E83AEFF4C82
+      AEFF427DACFFB8B3ACFFFFFFFFFFF7F6F6FFF7F6F6FFF7F6F6FFF7F6F6FFF7F6
+      F6FFF7F6F6FFFFFFFFFFADADABFF3F6A94FF568AB0FF4C82ABFF4D82ABFF4B81
+      ABFF417BA8FFB9B4ADFFFFFFFFFFFCFCFCFFFBFBFCFFFBFBFCFFFBFBFCFFFBFB
+      FCFFFCFCFCFFFFFFFFFFAEAEABFF3B6088C0406893FF3F6893FF406893FF3E67
+      93FF335F8FFFBBB7B0FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFB0B0ADFF000000230000003300000033000000330000
+      003300000033BBB7B0ECB1B0AEFFAEAEABFFADADABFFADADABFFADADABFFADAD
+      ABFFAEAEABFFAFAFADFFB1B1AFF2000000000000000000000000000000000000
+      0000000000000000002E00000033000000330000003300000033000000330000
+      0033000000330000003300000030B3B3B1EFB0B0ADFFAEAEACFFAEAEABFFADAD
+      ABFFAEAEABFFAFAFADFFB0B0AED5000000000000000000000000000000000000
+      0000000000000000000000000000AFAFADFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFE9E9E9FFAFAFADA70000000000000000000000000000
+      0000000000000000000000000000AEAEACFFFFFFFFFFE0E0DFFFE0E0DFFFE0E0
+      DFFFFFFFFFFFA4A4A2FFFFFFFFFFE9E9E9FFB0B0AEA400000000000000000000
+      0000000000000000000000000000AEAEABFFFFFFFFFFE5E4E3FFE6E5E4FFE5E4
+      E3FFFFFFFFFFCACAC9FFA4A4A2FFFFFFFFFFADADAAFFAFAFADFFAEAEACFFAFAF
+      ADFFB0B0AEAC0000000000000000ADADABFFFFFFFFFFE9E8E8FFEAE8E9FFE9E8
+      E8FFF3F2F2FFFFFFFFFFFFFFFFFFFFFFFFFFA9A9A6FFFFFFFFFFFFFFFFFFFFFF
+      FFFFE9E9E9FFAFAFADA700000000ADADABFFFFFFFFFFECECEBFFEDEDECFFEDED
+      ECFFECECEBFFEBEBEAFFEBEBEAFFFFFFFFFFA8A8A5FFE4E4E3FFFFFFFFFFA4A4
+      A2FFFFFFFFFFE9E9E9FFB0B0AEACADADABFFFFFFFFFFF0F0EFFFF0F0EFFFF0F0
+      EFFFF0F0EFFFEFEFEEFFEFEFEEFFFFFFFFFFA8A8A5FFE9E8E7FFFFFFFFFFCACA
+      C9FFA4A4A2FFFFFFFFFFAFAFADFFADADABFFFFFFFFFFF4F3F3FFF4F3F3FFF4F3
+      F3FFF4F3F3FFF4F3F3FFF4F3F3FFFFFFFFFFA8A8A5FFEDECECFFF4F3F3FFFFFF
+      FFFFFFFFFFFFFFFFFFFFAEAEABFFADADABFFFFFFFFFFF7F6F6FFF7F6F6FFF7F6
+      F6FFF7F6F6FFF7F6F6FFF7F6F6FFFFFFFFFFA7A7A5FFF1F1F1FFEDEDECFFEBEB
+      EAFFEBEBEAFFFFFFFFFFADADABFFAEAEABFFFFFFFFFFFCFCFCFFFBFBFCFFFBFB
+      FCFFFBFBFCFFFBFBFCFFFCFCFCFFFFFFFFFFA7A7A5FFF5F5F4FFF1F1F0FFEFEF
+      EEFFEFEFEEFFFFFFFFFFADADABFFB0B0ADFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFA8A8A5FFF9F8F8FFF5F4F4FFF4F3
+      F3FFF4F3F3FFFFFFFFFFADADABFFB0B0AEF1AFAFADFFAEAEABFFADADABFFADAD
+      ABFFADADABFFACACAAFFA9A9A7FFA8A8A6FFB8B7B6FFFBFAFAFFF8F6F6FFF7F6
+      F6FFF7F6F6FFFFFFFFFFADADABFF0000002F6868675F6464625C6464625C6161
+      60594E4E4D4EB0B0ADFFF6F6F5FFECECEBFFFBFAFAFFFDFDFDFFFCFCFCFFFBFB
+      FCFFFCFCFCFFFFFFFFFFAEAEABFF000000000000000B0000000A0000000A0000
+      000A00000007B0B0AEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFB0B0ADFF000000000000000000000000000000000000
+      000000000000B1B1AFF2B0B0AEFFAEAEACFFADADABFFADADABFFADADABFFADAD
+      ABFFAEAEABFFAFAFADFFB1B1AFF2000000000000000000000000000000000000
+      0000000000000000003000000033000000330000003300000033000000330000
+      0033000000330000003300000030FFFFFF00FFFFFF0000000000000000000000
+      000000000000BAB8B6FC00000000000000000000000000000000000000000000
+      000000000000FFFFFF00FFFFFF00FFFFFF00FFFFFF0000000000000000000000
+      000000000000D3D1D1FFAFADABEA000000000000000000000000000000000000
+      000000000000FFFFFF00FFFFFF00FFFFFF00FFFFFF00B9B7B5D3000000000000
+      000000000000D9D7D6FFC2C2C0FF000000000000000000000000000000000000
+      000000000000FFFFFF00FFFFFF00FFFFFF00FFFFFF00D4D4D3FFDAD9D8EB0000
+      000000000000D4D2D1FFBDBBBAFF000000000000000000000000000000000000
+      000000000000FFFFFF00FFFFFF00FFFFFF00FFFFFF009694949DEBEAEBFFD7D5
+      D4E300000000CDCBCAFFC8C7C5FF000000000000000000000000000000000000
+      000000000000FFFFFF00FFFFFF00FFFFFF00FFFFFF000000001BAAA8A5EDEBEB
+      EBFFD2D1D1D3C4C3C3FFC7C6C6FF000000000000000000000000000000000000
+      000000000000FFFFFF00FFFFFF00FFFFFF00FFFFFF00000000000000002F9C9B
+      9BB9ECEDEFFFBDB4A8FFCACCD0FF000000000000000000000000000000000000
+      000000000000FFFFFF00FFFFFF00FFFFFF00FFFFFF0000000000000000000000
+      0022989BA1B6D37C1DFFB98B5EFF000000000000000000000000000000000000
+      000000000000FFFFFF00FFFFFF00FFFFFF00FFFFFF0000000000000000000000
+      000000000021AB8968FF9E958EFFE09B4DFF0000000000000000000000000000
+      000000000000FFFFFF00FFFFFF00FFFFFF00FFFFFF0000000000000000000000
+      000000000000B3906DFF7171717DBE792DB5CC8538FFC7833BE6C2803BD7BE7E
+      3CFF00000000FFFFFF00FFFFFF00FFFFFF00FFFFFF000000000000000000D389
+      3726D08736FFC98235FF0000001300000021B67736BDBF7E3AEB0000002B9361
+      308BB6793EE3FFFFFF00FFFFFF00FFFFFF00FFFFFF000000000000000000CF86
+      39E08D5C2871C07F3CFF000000000000000000000023B97B3AE5BA7B3DAF0000
+      0016B0753FF6FFFFFF00FFFFFF00FFFFFF00FFFFFF000000000000000000C984
+      3AFF00000010B97B3DFF0000000000000000000000000000002DA9713AB0B077
+      3FFF9F6C3BBEFFFFFF00FFFFFF00FFFFFF00FFFFFF000000000000000000C180
+      3CFF00000000B2773FFF00000000000000000000000000000000000000210000
+      003300000023FFFFFF00FFFFFF00FFFFFF00FFFFFF000000000000000000B97B
+      3DFFB0773FFF8458318400000000000000000000000000000000000000000000
+      000000000000FFFFFF00FFFFFF00FFFFFF00FFFFFF0000000000000000000000
+      0033000000330000001400000000000000000000000000000000000000000000
+      000000000000FFFFFF00FFFFFF00
+    }
+  end
+end
